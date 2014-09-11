@@ -2,7 +2,7 @@ require 'faye'
 require "bundler/setup"
 
 Faye::WebSocket.load_adapter('thin')
-FAYE_TOKEN='dsadasdasdsa'
+FAYE_TOKEN = 'GRjseG99pILBkx6FG9ggEfEbMGLfb8X7otBA6x7HXr5k4unqiyni5grupe6bXHzRXRLtK5Mg9fxzg9KfAkkxGFAo95KI6oGbXsM'
 
 #require File.expand_path('../config/initializers/faye_config.rb', __FILE__)
 #require File.expand_path('../config/initializers/core_extensions.rb', __FILE__)
