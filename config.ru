@@ -10,7 +10,7 @@ FAYE_TOKEN = 'GRjseG99pILBkx6FG9ggEfEbMGLfb8X7otBA6x7HXr5k4unqiyni5grupe6bXHzRXR
 class ServerAuth
   def incoming(message, callback)
     if message['channel'] !~ %r{^/meta/}
-      if message.get_deep('ext', 'auth_token') != FAYE_TOKEN
+      if message && message['ext'] && message['ext']['auth_token'] != FAYE_TOKEN
         message['error'] = 'Invalid authentication token'
       end
     end
@@ -19,7 +19,7 @@ class ServerAuth
 
   # IMPORTANT: clear out the auth token so it is not leaked to the client
   def outgoing(message, callback)
-    if message.get_deep('ext', 'auth_token')
+    if message && message['ext'] && message['ext']['auth_token']
       message['ext'] = {} 
     end
     callback.call(message)
